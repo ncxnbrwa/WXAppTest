@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.2.2",
 	"appid": "wxb8298a8743d3f350",
-	"projectname": "Test1",
+	"projectname": "WXAppTest",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

@@ -26,6 +26,13 @@ Page({
     this.getMovieData(top250Url, "top250", "电影TOP250");
 
   },
+  onMoreTap: function(event) {
+    var category = event.currentTarget.dataset.category;
+    // console.log(category);
+    wx.navigateTo({
+      url: 'more-movie/more-movie?category='+category,
+    })
+  },
 
   getMovieData: function(url, settedKey, slogan) {
     var that = this;
@@ -37,6 +44,9 @@ Page({
       success: function(res) {
         console.log(res.data);
         that.processData(res.data, settedKey, slogan);
+      },
+      fail:function(option){
+        console.log(option);
       }
     })
   },
