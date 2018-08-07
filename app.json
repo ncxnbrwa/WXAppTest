@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/read/read",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/movies/movies"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "测试",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296DB",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/read/read",
+        "iconPath": "icons/tab_read.png",
+        "text": "阅读",
+        "selectedIconPath": "icons/tab_read_sel.png"
+      },
+      {
+        "pagePath": "pages/movies/movies",
+        "iconPath": "icons/tab_movie.png",
+        "text": "电影",
+        "selectedIconPath": "icons/tab_movie_sel.png"
+      }
+    ]
+  }
+}
