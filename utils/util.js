@@ -27,6 +27,7 @@ function convertToStarArray(stars) {
   return arr;
 }
 
+// 请求电影数据方法
 function getMovieData(url, callback) {
   wx.request({
     url: url,
@@ -42,6 +43,7 @@ function getMovieData(url, callback) {
   })
 }
 
+// 暴露出来可以给其它地方使用的参数
 module.exports = {
   formatTime: formatTime,
   convertToStarArray: convertToStarArray,

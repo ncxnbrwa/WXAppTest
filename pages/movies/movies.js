@@ -67,6 +67,7 @@ Page({
       };
       movies.push(tmp);
     }
+    //设置data的另一种方法
     var readyData = {};
     readyData[settedKey] = {
       slogan: slogan,
