@@ -93,5 +93,11 @@ Page({
     util.getMovieData(nextUrl, this.callBack);
     wx.showNavigationBarLoading();
     wx.stopPullDownRefresh();
+  },
+  onMovieTap:function(event){
+    var id = event.currentTarget.dataset.movieid;
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?id=' + id,
+    })
   }
 })

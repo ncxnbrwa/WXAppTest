@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/read/read",
+    "pages/movies/movie-detail/movie-detail",
     "pages/index/index",
     "pages/logs/logs",
     "pages/movies/movies",

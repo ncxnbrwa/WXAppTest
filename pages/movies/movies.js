@@ -10,7 +10,10 @@ Page({
   data: {
     inTheater: {},
     comingSoon: {},
-    top250: {}
+    top250: {},
+    containerShow: true,
+    searchPanelShow: false,
+    searchResult: []
   },
 
   /**
@@ -30,7 +33,7 @@ Page({
     var category = event.currentTarget.dataset.category;
     // console.log(category);
     wx.navigateTo({
-      url: 'more-movie/more-movie?category='+category,
+      url: 'more-movie/more-movie?category=' + category,
     })
   },
 
@@ -45,7 +48,7 @@ Page({
         console.log(res.data);
         that.processData(res.data, settedKey, slogan);
       },
-      fail:function(option){
+      fail: function(option) {
         console.log(option);
       }
     })
@@ -74,5 +77,30 @@ Page({
       movies: movies
     }
     this.setData(readyData);
+  },
+  cancelSearchResult: function() {
+    this.setData({
+      containerShow: true,
+      searchPanelShow: false,
+      searchResult: []
+    })
+  },
+  onBindFocus: function() {
+    this.setData({
+      containerShow: false,
+      searchPanelShow: true,
+      searchResult: []
+    })
+  },
+  onBindConfirm: function(event) {
+    var text = event.detail.value;
+    var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
+    this.getMovieData(searchUrl, "searchResult", "");
+  },
+  onMovieTap: function(event) {
+    var id = event.currentTarget.dataset.movieid;
+    wx.navigateTo({
+      url: 'movie-detail/movie-detail?id=' + id,
+    })
   }
 })

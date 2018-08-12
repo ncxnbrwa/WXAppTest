@@ -37,15 +37,37 @@ function getMovieData(url, callback) {
     success: function(res) {
       callback(res.data);
     },
-    fail:function(option){
+    fail: function(option) {
       console.log(option);
     }
   })
+}
+
+function convertToCastString(casts) {
+  var castsJoin = "";
+  for (let idx in casts) {
+    castsJoin = castsJoin + casts[idx].name + "/";
+  }
+  return castsJoin.substring(0, castsJoin.length - 2);
+}
+
+function convertToCastInfos(casts) {
+  var castsArray = [];
+  for (let idx in casts) {
+    var cast = {
+      img: casts[idx].avatars ? casts[idx].avatars.large : "",
+      name: casts[idx].name
+    }
+    castsArray.push(cast);
+  }
+  return castsArray;
 }
 
 // 暴露出来可以给其它地方使用的参数
 module.exports = {
   formatTime: formatTime,
   convertToStarArray: convertToStarArray,
-  getMovieData: getMovieData
+  getMovieData: getMovieData,
+  convertToCastString: convertToCastString,
+  convertToCastInfos: convertToCastInfos
 }
