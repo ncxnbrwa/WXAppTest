@@ -1,0 +1,16 @@
+.root{
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+}
+
+.btn1{
+  font-size: 24rpx;
+  margin-top: 16rpx;
+  width: 90%;
+}

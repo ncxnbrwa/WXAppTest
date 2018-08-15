@@ -1,1 +1,7 @@
-阅读页面
+<view class="root">
+  <text class='title'>阅读页面</text>
+  <button class='btn1' type="primary" size="100px" plain="{{true}}" bindtap="chooseAddress">选择地址</button>
+  <button class='btn1' type="primary" size="100px" plain="{{true}}"  open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">获取用户信息</button>
+  <button class='btn1' type="primary" size="100px" plain="{{true}}" bindtap="checkSession">检查登录状态</button>
+  <button class='btn1' type="primary" size="100px" plain="{{true}}" bindtap="getSetting" open-type='openSetting'>用户设置界面</button>
+</view>

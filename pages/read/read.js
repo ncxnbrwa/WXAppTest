@@ -4,62 +4,68 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function(options) {
+    // wx.showShareMenu({
+    //   withShareTicket: false,
+    //   success: function(res) {
+    //     console.log(res);
+    //   }
+    // })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
+  onShareAppMessage: function(res) {
+    console.log(res);
+    return {
+      title: '自定义转发标题',
+      path: 'pages/read/read'
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
+  chooseAddress: function(event) {
+    wx.chooseAddress({
+      success: function(res) {
+        console.log(res);
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
+  getUserInfo: function(event) {
+    // wx.login({
+    //   success: function(res) {
+    wx.getUserInfo({
+      withCredentials: true,
+      success: function(res) {
+        console.log(res);
+      },
+      fail: function(res) {
+        console.log(res);
+      }
+    })
+    //   }
+    // })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
+  bindGetUserInfo: function(e) {
+    console.log(e.detail);
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
+  checkSession: function(event) {
+    wx.checkSession({
+      success: function() {
+        console.log("session_key 未过期，并且在本生命周期一直有效");
+      },
+      fail: function() {
+        console.log("session_key 已经失效，需要重新执行登录流程");
+        // wx.login() //重新登录
+      }
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
+  getSetting: function(e) {
+    // wx.OpenSetting({
+    //   success:(res)=>{
+    //     console.log(res);
+    //   }
+    // })
   }
 })
